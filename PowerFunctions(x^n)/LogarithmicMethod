@@ -1,0 +1,22 @@
+#include <iostream>
+#include <type_traits>
+
+template <typename T>
+T logarithmicPow(T value, int pow)
+{
+	static_assert(std::is_arithmetic<T>::value, "Template type must be arithmetic");
+	if (pow == 0)
+	{
+		return 1;
+	}
+
+	if (pow % 2 == 0)
+	{
+		T half = logarithmicPow(value, pow / 2);
+		return half * half;
+	}
+	else
+	{
+		return value * logarithmicPow(value, pow - 1);
+	}
+}
