@@ -2,7 +2,7 @@
 #include <type_traits>
 
 template <typename T>
-T recursivePow(const T value,  int power)
+T recursivePow(const T value, const int power)
 {
     static_assert(std::is_arithmetic<T>::value, "Template type must be arithmetic");
     if(power == 0)
