@@ -2,7 +2,7 @@
 
 # C++ Power Functions
 
-This is a C++ project that provides implementations of three different algorithms for exponentiation (raising a number to a power). The functions are written using templates, allowing them to be used with any arithmetic type (e.g., `int`, `float`, `double`).
+This is a C++ implementations of three different algorithms for exponentiation (raising a number to a power). The functions are written using templates, allowing them to be used with any arithmetic type (e.g., `int`, `float`, `double`).
 
 ## Implemented functions
 
