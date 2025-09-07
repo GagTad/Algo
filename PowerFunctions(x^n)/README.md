@@ -33,12 +33,13 @@ int main()
     std::cout << "please insert a power of number: ";
     std::cin >> number1;
 
+ 	 std::cout << "The " << number1 << "- th power of " << value1 << " number is    " ;
     if (number1 < 0) 
     {
         number1 = -number1;
-        std::cout << "The " << number1 << "- th power of " << value1 << " number is    " << 1.0/iterativePow(value1, number1) << std::endl;
+        std::cout << 1.0/iterativePow(value1, number1) << std::endl;
     }
-    else std::cout << "The "<<number1<<"- th power of "<<value1<<" number is    "<< iterativePow(value1, number1) << std::endl;
+    else std::cout << iterativePow(value1, number1) << std::endl;
 
     int value2;
     std::cout << "please insert a value: ";
@@ -50,13 +51,13 @@ int main()
     std::cin >> number2;
     std::cout << std::endl;
  
-
+	 std::cout << "The " << number2 << "- th power of " << value2 << " number is    " ;
     if (number2 < 0)
     {
         number2 = -number2;
-        std::cout << "The " << number2 << "- th power of " << value2 << " number is    " << 1.0 / recursivePow(value2, number2) << std::endl;
+        std::cout << 1.0 / recursivePow(value2, number2) << std::endl;
     }
-    else std::cout << "The " << number2 << "- th power of " << value2 << " number is    " << recursivePow(value2, number2) << std::endl;
+    else std::cout << recursivePow(value2, number2) << std::endl;
 
     int value3;
     std::cout << "please insert a value: ";
@@ -68,13 +69,13 @@ int main()
     std::cin >> number3;
     std::cout << std::endl;
  
-
+	 std::cout << "The " << number3 << "- th power of " << value3 << " number is    " ;
     if (number3 < 0)
     {
         number3 = -number3;
-        std::cout << "The " << number3 << "- th power of " << value3 << " number is    " << 1.0 / logarithmicPow(value3, number3) << std::endl;
+        std::cout <<  1.0 / logarithmicPow(value3, number3) << std::endl;
     }
-    else std::cout << "The " << number3 << "- th power of " << value3 << " number is    " << logarithmicPow(value3, number3) << std::endl;
+    else std::cout << logarithmicPow(value3, number3) << std::endl;
 
 
     return 0;
