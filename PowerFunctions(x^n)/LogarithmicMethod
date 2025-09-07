@@ -2,7 +2,7 @@
 #include <type_traits>
 
 template <typename T>
-T logarithmicPow(T value, int pow)
+T logarithmicPow(const T value, const int pow)
 {
 	static_assert(std::is_arithmetic<T>::value, "Template type must be arithmetic");
 	if (pow == 0)
