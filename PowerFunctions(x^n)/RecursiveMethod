@@ -1,0 +1,14 @@
+#include <iostream>
+#include <type_traits>
+
+template <typename T>
+T recursivePow(const T value,  int power)
+{
+    static_assert(std::is_arithmetic<T>::value, "Template type must be arithmetic");
+    if(power == 0)
+    {
+        return 1;
+    }
+    return value * recursivePow(value, power -1);
+   
+}
