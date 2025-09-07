@@ -10,13 +10,13 @@ T logarithmicPow(T value, int pow)
 		return 1;
 	}
 
+	T half = logarithmicPow(value, pow / 2);
 	if (pow % 2 == 0)
 	{
-		T half = logarithmicPow(value, pow / 2);
 		return half * half;
 	}
 	else
 	{
-		return value * logarithmicPow(value, pow - 1);
+		return value * half * half;
 	}
 }
