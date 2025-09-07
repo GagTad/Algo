@@ -69,7 +69,7 @@ int main()
     std::cout << std::endl;
  
 
-    if (number2 < 0)
+    if (number3 < 0)
     {
         number3 = -number3;
         std::cout << "The " << number3 << "- th power of " << value3 << " number is    " << 1.0 / logarithmicPow(value3, number3) << std::endl;
