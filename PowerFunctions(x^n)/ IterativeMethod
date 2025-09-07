@@ -1,0 +1,15 @@
+#include <iostream>
+#include <type_traits>
+
+template <typename T>
+T iterativePow(const T value, const int power)
+{
+	static_assert(std::is_arithmetic<T>::value, "Template type must be arithmetic");
+    T result = 1;
+    for (int i = 0; i < power; ++i) 
+    {
+        result *= value;
+    }
+    return result;
+}
+
