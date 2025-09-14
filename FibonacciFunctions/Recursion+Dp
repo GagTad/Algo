@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+
+std::vector<int> vec;
+int recWithDpFib(int n)
+{
+	if (n == 1 || n == 2) return 1;
+	if (vec[n] != 0 ) return vec[n];
+	vec[n] = recWithDpFib(n - 1) + recWithDpFib(n - 2);
+	return vec[n];
+
+}
+
+int main() 
+{
+
+	int number;
+	std::cout << "please insert a number of Fibonacci secuence : ";
+	std::cin >> number;
+
+  vec.assign(number + 1, 0);
+  std::cout << "Fibonacci`s " << number << "_rd (recursion  & dp version ) element is :" << recWithDpFib(number) << std::endl;
+
+  reurn 0;
+}
