@@ -1,0 +1,15 @@
+#include <iostream>
+
+int iterFib(int n)
+{
+	int fib1 = 1;
+	int fib2 = 1;
+	int temp;
+	for (int  i = 2; i < n; i++)
+	{
+		temp = fib2;
+		fib2 = fib2 + fib1;
+		fib1 = temp;
+	}
+	return fib2;
+}
