@@ -91,9 +91,19 @@ void LinkedStack<T>::clear()
         pop();
 }
 
-
 template <typename T>
 void LinkedStack<T>::show() const
+{
+	Node<T>* current = m_top;
+	while (current != nullptr)
+	{
+		std::cout << current->val << " ";
+		current = current->next;
+	}
+}
+
+template <typename T>
+void LinkedStack<T>::showReverse() const
 {
 	std::vector<T> elem;
 
