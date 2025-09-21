@@ -16,6 +16,7 @@ public:
 	virtual void push(const T&) override;
 	virtual void pop() override;
 	virtual void clear() override;
+	virtual void showReverse() const;
 	virtual void show() const;
 	virtual const T& top() const override;
 	virtual bool empty() const override;
