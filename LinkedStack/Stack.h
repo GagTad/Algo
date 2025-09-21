@@ -10,4 +10,6 @@ public:
 	virtual const T& top() const = 0;
 	virtual bool empty() const = 0;
 	virtual void show() const = 0;
+	virtual void showReverse() const = 0;
+
 };
