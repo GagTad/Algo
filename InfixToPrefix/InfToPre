@@ -1,0 +1,105 @@
+#include <iostream>
+#include "..\..\ArrayBasedStack\ArrayBasedStack\ArrayBasedStack.h"
+#include <vector>
+#include <cctype>
+#include <stdexcept>
+
+int priority(char ch)
+{
+	switch (ch)
+	{
+	case '+':
+	case '-':
+		return 1;
+	case '*':
+	case '/':
+		return 2;
+	case '^':
+		return 3;
+	default:
+		return 0;
+	}
+}
+
+bool isOperator(char c) {
+	return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
+}
+
+std::string infToPost(std::string& string) {
+
+	ArrayBasedStack<char> stack;
+	std::string result;
+	result.reserve(string.length());
+
+	bool lastWasOperand = false;
+
+	if (isOperator(string[0])) {
+		throw std::runtime_error("Error: Expression cannot start with an operator.");
+	}
+	if (isOperator(string[string.length() - 1])) {
+		throw std::runtime_error("Error: Expression cannot end with an operator.");
+	}
+
+	for (char ch : string)
+	{
+		if (isspace(ch)) continue;
+
+		if (isalnum(ch))
+		{
+			if (lastWasOperand) {
+				throw std::runtime_error("Error: Missing operator between operands.");
+			}
+			result += ch;
+			lastWasOperand = true;
+		}
+		else if (ch == '(')
+		{
+			if (lastWasOperand) {
+				throw std::runtime_error("Error: Missing operator before '('.");
+			}
+			stack.push(ch);
+			lastWasOperand = false;
+		}
+		else if (ch == ')')
+		{
+			if (!lastWasOperand) {
+				throw std::runtime_error("Error: Expression inside () is empty or invalid.");
+			}
+
+			while (!stack.empty() && stack.top() != '(')
+			{
+				result += stack.top();
+				stack.pop();
+			}
+			stack.pop();
+		}
+		else
+		{ 
+			if (!lastWasOperand) {
+				throw std::runtime_error("Error: Missing operand between operators.");
+			}
+		
+			while (!stack.empty() && priority(stack.top()) >= priority(ch))
+			{
+				result += stack.top();
+				stack.pop();
+			}
+			lastWasOperand = false;
+			stack.push(ch);
+		}
+		
+	}
+	if (!stack.empty()) 
+	{
+		if (stack.top() == '(') {
+			throw std::runtime_error("Error: Mismatched opening parenthesis '('.");
+		}
+		while (!stack.empty())
+		{
+			result += stack.top();
+			stack.pop();
+		}
+	}
+	return result;
+
+}
