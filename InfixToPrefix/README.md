@@ -79,7 +79,7 @@ A B + C
 Error: Missing operator between operands.
 ```
 
-**3. Failed Conversion (Mismatched Parentheses):**
+**3. Failed Conversion (Invalid Input):**
 
 ```
 Please insert infix expression:
