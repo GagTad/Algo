@@ -106,7 +106,7 @@ template<typename T>
 
 	size_t new_capacity = m_capacity * 2;
 	T* new_data = new T[new_capacity];
-	size_t back_idx = (m_front_idx + m_size) % m_capacity;
+	//size_t back_idx = (m_front_idx + m_size) % m_capacity;
 
 	for (size_t i = 0; i < m_size; ++i) {
 		new_data[i] = m_arr[(m_front_idx + i) % m_capacity];
@@ -118,4 +118,5 @@ template<typename T>
 	m_capacity = new_capacity;
 	m_front_idx = 0; 
  }
+
 
