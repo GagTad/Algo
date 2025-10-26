@@ -44,7 +44,7 @@ std::string infToPost(std::string& string) {
 	{
 		if (isspace(ch)) continue;
 
-		if (isalnum(ch))
+		if (isalnum(ch)) //tar kam tiv 
 		{
 			if (lastWasOperand) {
 				throw std::runtime_error("Error: Missing operator between operands.");
@@ -58,7 +58,7 @@ std::string infToPost(std::string& string) {
 				throw std::runtime_error("Error: Missing operator before '('.");
 			}
 			stack.push(ch);
-			lastWasOperand = false;
+			lastWasOperand = false; //avel e
 		}
 		else if (ch == ')')
 		{
