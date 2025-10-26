@@ -1,0 +1,100 @@
+#include <iostream>
+#include <stack>
+#include <string>
+#include <sstream>     
+#include <stdexcept>   
+#include <cmath>       
+
+
+bool isOperator(const std::string& token) {
+    return token == "+" || token == "-" || token == "*" || token == "/" || token == "^";
+}
+
+
+double evaluatePostfix(const std::string& postfix) {
+    
+    std::stack<double> s;
+
+    std::stringstream ss(postfix);
+    std::string token;
+
+    
+    while (ss >> token) {
+
+       
+        if (isOperator(token)) {
+           
+            if (s.size() < 2) {
+                throw std::runtime_error("Invalid syntax: not enough operands for operator '" + token + "'.");
+            }
+
+            
+            double op2 = s.top(); s.pop();
+            double op1 = s.top(); s.pop();
+
+            
+            if (token == "+") {
+                s.push(op1 + op2);
+            }
+            else if (token == "-") {
+                s.push(op1 - op2);
+            }
+            else if (token == "*") {
+                s.push(op1 * op2);
+            }
+            else if (token == "/") {
+                if (op2 == 0) {
+                    throw std::runtime_error("Math error: Division by zero.");
+                }
+                s.push(op1 / op2);
+            }
+            else if (token == "^") {
+               
+                s.push(pow(op1, op2));
+            }
+        }
+        
+        else {
+            try {
+                
+                s.push(std::stod(token));
+            }
+            catch (const std::invalid_argument&) {
+                
+                throw std::runtime_error("Invalid token in expression: " + token);
+            }
+        }
+    }
+
+    
+    if (s.size() != 1) {
+        throw std::runtime_error("Invalid syntax: too many operands left in the stack.");
+    }
+
+    return s.top();
+}
+
+int main() {
+    
+    std::string postfix_exp = "4 5 + 2 ^";
+
+    try {
+        double result = evaluatePostfix(postfix_exp);
+        std::cout << "Expression: " << postfix_exp << std::endl;
+        std::cout << "Result: " << result << std::endl; 
+
+        std::cout << "------------------" << std::endl;
+
+        
+        postfix_exp = "10 2 3 ^ *";
+        result = evaluatePostfix(postfix_exp);
+        std::cout << "Expression: " << postfix_exp << std::endl;
+        std::cout << "Result: " << result << std::endl; 
+
+    }
+    catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
