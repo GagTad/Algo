@@ -21,8 +21,6 @@ bool runWave(std::vector<std::vector<int>>& grid, Point start, Point finish) {
     grid[start.row][start.col] = 1;
     q.push(start);
 
-    const int directions[4][2] = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
-
     while (!q.empty()) {
         Point current = q.front();
         q.pop();
