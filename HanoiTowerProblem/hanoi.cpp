@@ -27,40 +27,37 @@ void printRods(const std::stack<int>& source, const std::stack<int>& final, cons
 }
 
 void solveHanoi(int n,
-                std::stack<int>& source, std::stack<int>& final, std::stack<int>& helper,
-                char source_name, char final_name, char helper_name) {
+                std::stack<int>& source, std::stack<int>& final, std::stack<int>& helper) {
     if (n == 0) {
         return;
     }
 
-    solveHanoi(n - 1, source, helper, final, source_name, helper_name, final_name);
+    solveHanoi(n - 1, source, helper, final);
 
     int disk = source.top();
     source.pop();
     final.push(disk);
-    std::cout << "Քայլ։ Տեղափոխել սկավառակ " << final << " " << source_name << "-ից -> " << final_name << std::endl;
 
-    solveHanoi(n - 1, helper, final, source, helper_name, final_name, source_name);
+    solveHanoi(n - 1, helper, final, source);
 }
 
 
 int main() {
-    // Ստեղծում ենք աշտարակները (ձողերը)
     std::stack<int> stick_A;
     std::stack<int> stick_B;
-    std::stack<int> stivk_C;
+    std::stack<int> stick_C;
 
     int num_disks;
     std::cin >> num_disks;
 
     for (int i = num_disks; i >= 1; --i) {
-        rod_A.push(i);
+        stick_A.push(i);
     }
-    printRods(rod_A, rod_B, rod_C);
+    printRods(stick_A, stick_B, stick_C);
 
-    solveHanoi(num_disks, rod_A, rod_C, rod_B, 'A', 'C', 'B');
+    solveHanoi(num_disks, stick_A, stick_C, stick_B);
 
-    printRods(rod_A, rod_B, rod_C);
+    printRods(stick_A, stick_B, stick_C);
 
     return 0; 
 }
