@@ -4,7 +4,7 @@
 #include <cmath> 
 
 
-void SolveAndPrintPolynomial(const vector<pair<int, int>>& inputTerms) {
+void SolveAndPrintPolynomial(const std::vector<pair<int, int>>& inputTerms) {
     std::map<int, int, greater<int>> polyMap;
 
     for (const auto& term : inputTerms) {
@@ -48,12 +48,12 @@ void SolveAndPrintPolynomial(const vector<pair<int, int>>& inputTerms) {
         std::cout << "0";
     }
 
-    std::cout << endl;
+    std::cout << std::endl;
 }
 
 int main() {
 
-    vector<pair<int, int>> terms = {
+    std::vector<pair<int, int>> terms = {
         {2, 3}, {4, 5}, {8, 2}, {4, -1}, {0, 7}, {0, -5}, {1, -1}
     };
 
