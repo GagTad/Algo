@@ -1,0 +1,14 @@
+//LeetCode349
+//Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+
+vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+       std::unordered_set<int> s1(nums1.begin(), nums1.end());
+       std::unordered_set<int> resSet;
+        for (int num : nums2) {
+            if (s1.count(num)) {
+                resSet.insert(num);
+            }
+        }
+        std::vector<int> result(resSet.begin(), resSet.end());
+        return std::vector<int>(resSet.begin(), resSet.end());;
+    }
