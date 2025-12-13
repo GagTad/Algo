@@ -29,9 +29,9 @@ int main() {
   //10x30 , 30x5 , 5x60 
     std::vector<int> arr = {10, 30, 5, 60};
     for (int x : arr) cout << x << " ";
-    cout << endl;
+    std::cout << std::endl;
     int minOps = matrixChainMultiplication(arr);
-    cout <<  minOps << endl;
+    std::cout <<  minOps << std::endl;
 
     return 0;
 }
