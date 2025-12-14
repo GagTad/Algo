@@ -32,7 +32,6 @@ std::stack<int> mergeAndSortStacks(std::stack<int> s1, std::stack<int> s2) {
         combinedStack.push(s2.top());
         s2.pop();
     }
-
     return sortStack(combinedStack);
 }
 
