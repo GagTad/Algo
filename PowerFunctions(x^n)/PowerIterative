@@ -1,6 +1,6 @@
 #include <iostream> 
 
-tempalte <typename T>
+templte <typename T>
 T PowerIterative(T x, int n) { 
     T result = 1; 
     while (n > 0) { 
