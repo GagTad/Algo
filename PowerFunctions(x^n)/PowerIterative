@@ -4,11 +4,11 @@ templte <typename T>
 T PowerIterative(T x, int n) { 
     T result = 1; 
     while (n > 0) { 
-        if (n % 2 == 1) { 
+        if (n & 1 == 1) { 
               result *= x; 
         } 
         x *= x; 
-        n /= 2; 
+        n >>= 2; 
       } 
       return result; 
   } 
