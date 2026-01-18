@@ -29,7 +29,7 @@ inline void ArrayBasedDeque<T>::push_front(const T& value)
 	if(m_size == m_capacity)
 		resize();
 
-	m_front_idx = (m_front_idx - 1 + m_size) % m_capacity;
+	m_front_idx = (m_front_idx - 1 + m_capacity) % m_capacity;
 	m_arr[m_front_idx] = value;
 	m_size++;
 
@@ -118,5 +118,6 @@ template<typename T>
 	m_capacity = new_capacity;
 	m_front_idx = 0; 
  }
+
 
 
